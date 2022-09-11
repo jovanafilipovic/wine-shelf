@@ -1,0 +1,92 @@
+.registration-page {
+  background-color: #f6f7c1;
+  width: calc(100%);
+  min-height: 130vh;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.form-div {
+  min-width: 130vh;
+  min-height: 15vh;
+}
+
+.heading-registration {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  color: brown;
+  letter-spacing: 2px;
+}
+
+.form-group-1 {
+  display: flex;
+  padding: 1.1rem;
+  color: brown;
+  max-width: 30rem;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 40%;
+}
+
+.form-group-1 input {
+  padding-top: 0.6rem;
+  margin-top: 0.7rem;
+  width: 100%;
+  border-color: brown;
+  min-height: 1.5rem;
+  display: block;
+}
+
+.form-group-2 {
+  display: flex;
+  padding: 1.1rem;
+  margin-top: -6.5rem;
+  color: brown;
+  margin-left: 56%;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 40%;
+}
+
+.form-group-2 input {
+  padding-top: 0.6rem;
+  margin-top: 0.7rem;
+  width: 100%;
+  border-color: brown;
+  min-height: 1.5rem;
+  display: block;
+}
+
+.registration-page label {
+  text-align: left;
+  width: 102%;
+}
+
+.form-group-terms {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: brown;
+  padding-top: 1rem;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.register-button {
+  background-color: brown;
+  border: none;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  margin: 2rem 25rem;
+  border-radius: 2px;
+}

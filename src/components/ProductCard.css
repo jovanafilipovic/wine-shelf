@@ -1,0 +1,11 @@
+.card-header {
+  font-size: 6px;
+  background-color: red;
+}
+.card {
+  max-width: 80rem;
+}
+
+.price {
+  margin: 1rem;
+}

@@ -1,0 +1,31 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  background-color: #a35a41;
+  /*background-color: #7d1f04;
+  background-color: #6b1f04;*/
+  width: calc(100%);
+  min-height: 30vh;
+  margin: 0;
+  padding-top: 2%;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: aliceblue;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: black;
+}
+.all-rights {
+  margin: 0 auto;
+  margin-top: 2%;
+}

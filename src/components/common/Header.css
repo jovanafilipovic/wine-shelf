@@ -1,0 +1,120 @@
+.header {
+  background-color: white;
+  margin: 0;
+}
+.navbar {
+  width: 95%;
+  padding-bottom: 1rem;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 100%;
+}
+
+.nav-items a {
+  color: brown;
+  text-decoration: none;
+  margin-top: 1rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.nav-items a:hover {
+  color: black;
+}
+
+.icon {
+  margin-bottom: -3px;
+}
+.profile {
+  color: brown;
+  display: inline;
+  margin-bottom: -3px;
+}
+
+.menu-icon {
+  color: brown;
+  cursor: pointer;
+  display: none;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-icon:hover {
+  color: black;
+}
+
+@media (max-width: 800px) {
+  .menu-icon {
+    display: flex;
+  }
+
+  .nav-div {
+    display: none;
+    width: 100%;
+    background-color: #a35a41;
+  }
+
+  .nav-div ul {
+    display: flex;
+    align-items: flex-start;
+    width: 50%;
+    padding-left: 0rem;
+    flex-direction: column;
+    background-color: #a35a41;
+    margin-top: 0rem;
+    transition: transform 0.5s ease-in;
+  }
+
+  .nav-div a {
+    display: flex;
+    text-align: start;
+    padding: 1.5rem 2rem;
+    color: white;
+  }
+
+  .nav-div.active {
+    display: inline;
+    transform: translateX(0%);
+  }
+
+  .profile {
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    color: white;
+  }
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  justify-content: flex-start;
+}
+
+.logo {
+  width: 20rem;
+  height: 12rem;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.sign-in {
+  text-decoration: none;
+  color: black;
+}
+
+.account-menu {
+  color: brown;
+}
+
+.register {
+  text-decoration: none;
+  color: black;
+}

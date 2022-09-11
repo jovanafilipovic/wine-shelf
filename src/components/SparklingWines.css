@@ -1,0 +1,11 @@
+.champagnes-page {
+  background-color: #f6f7c1;
+  width: calc(100%);
+  min-height: 130vh;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-flow: wrap;
+}
