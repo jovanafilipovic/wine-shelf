@@ -1,4 +1,5 @@
-import { Add, Remove } from "@material-ui/icons";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 import styled from "styled-components";
 
 const Product = styled.div`
@@ -80,9 +81,9 @@ const ShoppingBagItem = () => {
         </ProductDetail>
         <PriceDetail>
           <ProductAmountContainer>
-            <Add />
+            <AddIcon />
             <ProductAmount>2</ProductAmount>
-            <Remove />
+            <RemoveIcon />
           </ProductAmountContainer>
           <ProductPrice>$ 30</ProductPrice>
         </PriceDetail>
@@ -104,9 +105,9 @@ const ShoppingBagItem = () => {
         </ProductDetail>
         <PriceDetail>
           <ProductAmountContainer>
-            <Add />
+            <AddIcon />
             <ProductAmount>1</ProductAmount>
-            <Remove />
+            <RemoveIcon />
           </ProductAmountContainer>
           <ProductPrice>$ 20</ProductPrice>
         </PriceDetail>

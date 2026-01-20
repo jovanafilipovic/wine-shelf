@@ -1,65 +1,65 @@
-import styled from "styled-components";
-
-const Summary = styled.div`
-  flex: 1;
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 20px;
-  height: 50vh;
-  margin-top: 2rem;
-`;
-
-const SummaryTitle = styled.h1`
-  font-weight: 150;
-  color: brown;
-  font-size: 22px;
-  letter-spacing: 1px;
-  text-align: center;
-`;
-
-const SummaryItem = styled.div`
-  margin: 2rem 0rem;
-  display: flex;
-  justify-content: space-between;
-  color: brown;
-`;
-
-const SummaryItemText = styled.span``;
-
-const SummaryItemPrice = styled.span``;
-
-const Button = styled.button`
-  width: 100%;
-  padding: 10px;
-  background-color: brown;
-  border: none;
-  border-radius: 3px;
-  color: white;
-  font-weight: 600;
-`;
+import { Box, Typography, Button } from "@mui/material";
 
 const OrderSummary = () => {
   return (
-    <Summary>
-      <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-      <SummaryItem>
-        <SummaryItemText>Subtotal</SummaryItemText>
-        <SummaryItemPrice>$ 80</SummaryItemPrice>
-      </SummaryItem>
-      <SummaryItem>
-        <SummaryItemText>Estimated Shipping</SummaryItemText>
-        <SummaryItemPrice>$ 5.90</SummaryItemPrice>
-      </SummaryItem>
-      <SummaryItem>
-        <SummaryItemText>Shipping Discount</SummaryItemText>
-        <SummaryItemPrice>$ -5.90</SummaryItemPrice>
-      </SummaryItem>
-      <SummaryItem>
-        <SummaryItemText>Total</SummaryItemText>
-        <SummaryItemPrice>$ 80</SummaryItemPrice>
-      </SummaryItem>
-      <Button>CHECKOUT NOW</Button>
-    </Summary>
+    <Box
+      sx={{
+        flex: 1,
+        border: "2px solid white",
+        borderRadius: 2,
+        p: 3,
+        height: "50vh",
+        mt: 4,
+      }}
+    >
+      <Typography
+        variant="h6"
+        sx={{
+          fontWeight: 300,
+          color: "brown",
+          letterSpacing: 1,
+          textAlign: "center",
+          mb: 3,
+        }}
+      >
+        ORDER SUMMARY
+      </Typography>
+
+      {[
+        { label: "Subtotal", value: "$ 80" },
+        { label: "Estimated Shipping", value: "$ 5.90" },
+        { label: "Shipping Discount", value: "$ -5.90" },
+        { label: "Total", value: "$ 80" },
+      ].map((item) => (
+        <Box
+          key={item.label}
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            color: "brown",
+            my: 3,
+          }}
+        >
+          <Typography>{item.label}</Typography>
+          <Typography>{item.value}</Typography>
+        </Box>
+      ))}
+
+      <Button
+        fullWidth
+        variant="contained"
+        sx={{
+          mt: 2,
+          backgroundColor: "brown",
+          fontWeight: 600,
+          "&:hover": {
+            backgroundColor: "#5a1a1a",
+          },
+        }}
+      >
+        CHECKOUT NOW
+      </Button>
+    </Box>
   );
 };
 

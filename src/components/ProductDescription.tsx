@@ -1,126 +1,127 @@
-import { Add, Remove } from "@material-ui/icons";
-import styled from "styled-components";
-
-const Container = styled.div`
-  min-height: 200vh;
-  background-color: #f6f7c1;
-`;
-
-const Wrapper = styled.div`
-  padding: 50px;
-  display: flex;
-`;
-
-const ImgContainer = styled.div`
-  flex: 1;
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 90vh;
-  object-fit: cover;
-`;
-
-const InfoContainer = styled.div`
-  flex: 1;
-  padding: 0px 50px;
-  background-color: #a35a41;
-  opacity: 95%;
-`;
-
-const Title = styled.h1`
-  margin-top: 3rem;
-  letter-spacing: 1px;
-  font-size: 30px;
-  font-weight: 50;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  color: white;
-`;
-
-const Desc = styled.p`
-  margin: 50px 0px;
-  letter-spacing: 1px;
-  text-align: justify;
-  color: white;
-`;
-
-const Price = styled.span`
-  font-weight: 100;
-  font-size: 25px;
-  margin-top: 5rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  color: white;
-`;
-
-const AddContainer = styled.div`
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 4rem;
-`;
-
-const AmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-  color: white;
-`;
-
-const Amount = styled.span`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 5px;
-  color: white;
-`;
-
-const Button = styled.button`
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  background-color: white;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 4rem;
-  color: brown;
-`;
+import { Box, Typography, Button, IconButton } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
 
 const Product = () => {
   return (
-    <Container>
-      <Wrapper>
-        <ImgContainer>
-          <Image src="https://cdn.shopify.com/s/files/1/2216/3143/products/Bovin_Alexandar_800x800_c1cf79a1-1320-4dfe-bec8-1d50036c055a_1600x.jpg?v=1621822942" />
-        </ImgContainer>
-        <InfoContainer>
-          <Title>Alexandar Bovin</Title>
-          <Desc>
+    <Box sx={{ minHeight: "100vh" }}>
+      <Box
+        sx={{
+          p: { xs: 2, md: 6 },
+          display: "flex",
+          gap: 6,
+          flexDirection: { xs: "column", md: "row" },
+        }}
+      >
+        {/* IMAGE */}
+        <Box sx={{ flex: 1 }}>
+          <Box
+            component="img"
+            src="https://cdn.shopify.com/s/files/1/2216/3143/products/Bovin_Alexandar_800x800_c1cf79a1-1320-4dfe-bec8-1d50036c055a_1600x.jpg?v=1621822942"
+            sx={{
+              width: "100%",
+              height: { xs: "300px", md: "90vh" },
+              objectFit: "cover",
+              borderRadius: 2,
+            }}
+          />
+        </Box>
+
+        {/* INFO */}
+        <Box sx={{ flex: 1, px: { xs: 0, md: 6 } }}>
+          <Typography
+            variant="h4"
+            sx={{
+              mt: 3,
+              letterSpacing: 1,
+              fontWeight: 300,
+              fontFamily:
+                '"Trebuchet MS","Lucida Sans Unicode","Lucida Grande","Lucida Sans",Arial,sans-serif',
+              color: "brown",
+            }}
+          >
+            Alexandar Bovin
+          </Typography>
+
+          <Typography
+            sx={{
+              my: 4,
+              letterSpacing: 1,
+              textAlign: "justify",
+              color: "text.secondary",
+            }}
+          >
             The Tikvesh district has approximately 11,000 ha of grapes, which
             represents about one third of the total vineyard area of Macedonia.
             It is the driest area of Balkan Peninsula. The maximum daily
             temperature during July and August is regularly around 40ºC. With a
             deep plowing layer, the rich soils supply the grapes with a constant
             supply of water.
-          </Desc>
-          <Price>$ 20</Price>
-          <AddContainer>
-            <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
-            </AmountContainer>
-          </AddContainer>
-          <Button>Add to card</Button>
-        </InfoContainer>
-      </Wrapper>
-    </Container>
+          </Typography>
+
+          <Typography
+            variant="h5"
+            sx={{
+              mt: 4,
+              fontWeight: 300,
+              color: "brown",
+            }}
+          >
+            $ 20
+          </Typography>
+
+          {/* AMOUNT */}
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 2,
+              mt: 4,
+            }}
+          >
+            <IconButton size="small">
+              <RemoveIcon />
+            </IconButton>
+
+            <Box
+              sx={{
+                width: 32,
+                height: 32,
+                border: "1px solid brown",
+                borderRadius: 2,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: 600,
+                color: "brown",
+              }}
+            >
+              1
+            </Box>
+
+            <IconButton size="small">
+              <AddIcon />
+            </IconButton>
+          </Box>
+
+          {/* BUTTON */}
+          <Button
+            variant="contained"
+            sx={{
+              mt: 5,
+              backgroundColor: "brown",
+              color: "white",
+              fontWeight: "bold",
+              "&:hover": {
+                backgroundColor: "#5a1e1e",
+              },
+            }}
+          >
+            Add to cart
+          </Button>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

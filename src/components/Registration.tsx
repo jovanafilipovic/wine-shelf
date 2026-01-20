@@ -1,8 +1,14 @@
-import React, { useState } from "react";
-import "./Registration.css";
-import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Container,
+  FormControlLabel,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
@@ -16,157 +22,181 @@ const Registration = () => {
   const [postNumber, setPostNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
 
-  // Ova funkcija nam je potrebna kako bi prikazali korisnike koji su se registrovali prilikom klika na dugme za registraciju
-  /* const register = () => {
-    dispatch({
-      type: "Register",
-      payload: {
-        id: new Date().getTime(),
-        firstName,
-        lastName,
-        email,
-      },
-    });
-  };*/
-
-  const register = (e) => {
+  const register = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!termsAccepted) return;
+    if (password !== confirmPassword) return;
+
+    // dispatch(registerUser(...)) ← kasnije
+    navigate("/signin");
   };
 
   return (
-    <div className="registration-page">
-      <form onSubmit={register} action="">
-        <div className="form-div">
-          <h2 className="heading-registration">Registration</h2>
-          <div className="form-group-1">
-            <label className="label">First name:</label>
-            <input
-              id="first-name"
-              type="text"
-              name="firstName"
+    <Container maxWidth="sm">
+      <Box
+        component="form"
+        onSubmit={register}
+        sx={{
+          mt: 6,
+          p: 4,
+          borderRadius: 2,
+          boxShadow: 3,
+        }}
+      >
+        <Typography
+          variant="h5"
+          textAlign="center"
+          mb={4}
+          sx={{ color: "brown", fontWeight: 500 }}
+        >
+          Registration
+        </Typography>
+
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="First name"
+              fullWidth
               required
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-            ></input>
-          </div>
-          <div className="form-group-2">
-            <label className="label">Last name:</label>
-            <input
-              id="last-name"
-              type="text"
-              name="lastName"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Last name"
+              fullWidth
               required
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-            ></input>
-          </div>
-          <div className="form-group-1">
-            <label className="label">Email:</label>
-            <input
-              id="email"
-              type="text"
-              name="email"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Email"
+              type="email"
+              fullWidth
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-            ></input>
-          </div>
-          <div className="form-group-2">
-            <label className="label">Phone number:</label>
-            <input
-              id="phone-number"
-              type="text"
-              name="phoneNumber"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Phone number"
+              fullWidth
               required
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-            ></input>
-          </div>
-          <div className="form-group-1">
-            <label className="label">City:</label>
-            <input
-              id="city"
-              type="text"
-              name="city"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="City"
+              fullWidth
               required
               value={city}
               onChange={(e) => setCity(e.target.value)}
-            ></input>
-          </div>
-          <div className="form-group-2">
-            <label className="label">Address:</label>
-            <input
-              id="address"
-              type="text"
-              name="address"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Address"
+              fullWidth
               required
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-            ></input>
-          </div>
-          <div className="form-group-1">
-            <label className="label">Address number:</label>
-            <input
-              id="address-number"
-              type="text"
-              name="addressNumber"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Address number"
+              fullWidth
               required
               value={addressNumber}
               onChange={(e) => setAddressNumber(e.target.value)}
-            ></input>
-          </div>
-          <div className="form-group-2">
-            <label className="label">Post number:</label>
-            <input
-              id="post-number"
-              type="text"
-              name="postNumber"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Post number"
+              fullWidth
               required
               value={postNumber}
               onChange={(e) => setPostNumber(e.target.value)}
-            ></input>
-          </div>
-          <div className="form-group-1">
-            <label className="label">Password:</label>
-            <input
-              id="password"
-              type="text"
-              name="password"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Password"
+              type="password"
+              fullWidth
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            ></input>
-          </div>
-          <div className="form-group-2">
-            <label className="label">Password:</label>
-            <input
-              id="confirmPassword"
-              type="text"
-              name="confirmPassword"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Confirm password"
+              type="password"
+              fullWidth
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-            ></input>
-          </div>
-          <div className="form-group-terms">
-            <Checkbox className="check-box" required />
-            <label className="label">I agree with terms of use.</label>
-          </div>
-          <input
-            className="register-button"
-            type="submit"
-            value="Register"
-            /*onClick={() => {
-              navigate("/signin"); OVO OVDE MI PRAVI PROBLEM ZA REQUIRED FIELDS
-            }}*/
-          ></input>
-        </div>
-      </form>
-    </div>
+              error={confirmPassword !== "" && password !== confirmPassword}
+              helperText={
+                confirmPassword !== "" && password !== confirmPassword
+                  ? "Passwords do not match"
+                  : ""
+              }
+            />
+          </Grid>
+        </Grid>
+
+        <FormControlLabel
+          sx={{ mt: 2 }}
+          control={
+            <Checkbox
+              checked={termsAccepted}
+              onChange={(e) => setTermsAccepted(e.target.checked)}
+              required
+            />
+          }
+          label="I agree with terms of use"
+        />
+
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{
+            mt: 3,
+            backgroundColor: "brown",
+            fontWeight: "bold",
+            "&:hover": {
+              backgroundColor: "#5a1e1e",
+            },
+          }}
+        >
+          Register
+        </Button>
+      </Box>
+    </Container>
   );
 };
 

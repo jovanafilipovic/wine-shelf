@@ -3,22 +3,19 @@
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  background-color: #a35a41;
-  /*background-color: #7d1f04;
-  background-color: #6b1f04;*/
   width: calc(100%);
   min-height: 30vh;
   margin: 0;
   padding-top: 2%;
   box-sizing: border-box;
   overflow: hidden;
-  color: aliceblue;
+  color: #9d6666;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
 
 .footer a {
-  color: white;
+  color: #9d6666;
   text-decoration: none;
 }
 

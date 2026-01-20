@@ -1,4 +1,3 @@
-import React from "react";
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
 import HomePage from "./components/HomePage";
@@ -14,13 +13,12 @@ import TermsOfUse from "./components/TermsOfUse";
 import PageNotFound from "./components/PageNotFound";
 import Registration from "./components/Registration";
 import { Route, Routes } from "react-router-dom";
-import Favorites from "./components/Favorites";
 import SignIn from "./components/SignIn";
 import ProductDescription from "./components/ProductDescription";
 
 const App = () => {
   return (
-    <div className="container">
+    <div>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -33,9 +31,8 @@ const App = () => {
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/termsOfUse" element={<TermsOfUse />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signIn" element={<SignIn />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/favorites" element={<Favorites />} />
         <Route path="/productDescription" element={<ProductDescription />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
