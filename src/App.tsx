@@ -1,11 +1,10 @@
 import Footer from "./components/common/Footer";
-import Header from "./components/common/Header";
+import Header from "./components/common/NavigationMenu";
 import HomePage from "./components/HomePage";
 import Wines from "./components/Wines";
 import SparklingWines from "./components/SparklingWines";
 import Regions from "./components/Regions";
 import Grapes from "./components/Grapes";
-import Gifts from "./components/Gifts";
 import ShoppingBag from "./components/ShoppingBag";
 import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact";
@@ -15,6 +14,7 @@ import Registration from "./components/Registration";
 import { Route, Routes } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import ProductDescription from "./components/ProductDescription";
+import GiftBoxes from "./components/GiftBoxes";
 
 const App = () => {
   return (
@@ -26,7 +26,7 @@ const App = () => {
         <Route path="/champagnes" element={<SparklingWines />} />
         <Route path="/regions" element={<Regions />} />
         <Route path="/grapes" element={<Grapes />} />
-        <Route path="/gifts" element={<Gifts />} />
+        <Route path="/giftBoxes" element={<GiftBoxes />} />
         <Route path="/shoppingBag" element={<ShoppingBag />} />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />

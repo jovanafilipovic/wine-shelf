@@ -46,6 +46,7 @@ const WinesHeader = () => {
         <MenuItem onClick={handleCategoryClose}>Red</MenuItem>
         <MenuItem onClick={handleCategoryClose}>Rose</MenuItem>
         <MenuItem onClick={handleCategoryClose}>White</MenuItem>
+        <MenuItem onClick={handleCategoryClose}>Sparking Wine</MenuItem>
       </Menu>
 
       <Button

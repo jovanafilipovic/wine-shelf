@@ -20,7 +20,14 @@ const ProductItem = ({ item }) => {
         image={"/static/images/cards/paella.jpg"}
         alt="Paella dish"
       />
-      <CardActions disableSpacing className="card-actions">
+      <CardActions
+        disableSpacing
+        sx={{
+          justifyContent: "center",
+          px: 2,
+          pb: 2,
+        }}
+      >
         <IconButton aria-label="add to favorites">
           <FavoriteBorderIcon />
         </IconButton>

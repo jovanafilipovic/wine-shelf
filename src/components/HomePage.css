@@ -1,8 +1,8 @@
 .homepage {
-  width: calc(100%);
-  min-height: 200vh;
-  margin: 0;
-  padding: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
   box-sizing: border-box;
   overflow: hidden;
   flex-flow: wrap;

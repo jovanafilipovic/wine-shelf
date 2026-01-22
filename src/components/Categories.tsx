@@ -1,20 +1,20 @@
-import styled from "styled-components";
-import { categories } from "../data";
+import { Grid } from "@mui/material";
 import CategoryItem from "./CategoryItem";
-
-const Container = styled.div`
-  display: flex;
-  padding: 20px;
-  justify-content: space-between;
-`;
+import { categories } from "../data";
 
 const Categories = () => {
   return (
-    <Container>
+    <Grid
+      container
+      spacing={2}
+      sx={{ maxWidth: 1400, margin: "0 auto", padding: 2 }}
+    >
       {categories.map((item) => (
-        <CategoryItem item={item} key={item.id} />
+        <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
+          <CategoryItem item={item} />
+        </Grid>
       ))}
-    </Container>
+    </Grid>
   );
 };
 

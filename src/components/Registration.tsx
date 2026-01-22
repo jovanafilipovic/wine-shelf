@@ -32,7 +32,6 @@ const Registration = () => {
     if (!termsAccepted) return;
     if (password !== confirmPassword) return;
 
-    // dispatch(registerUser(...)) ← kasnije
     navigate("/signin");
   };
 

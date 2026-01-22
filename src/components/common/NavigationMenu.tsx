@@ -45,11 +45,11 @@ const Header = () => {
           <Button component={NavLink} to="/wines" color="inherit">
             Wines
           </Button>
-          <Button component={NavLink} to="/champagnes" color="inherit">
-            Sparkling
-          </Button>
           <Button component={NavLink} to="/regions" color="inherit">
             Regions
+          </Button>
+          <Button component={NavLink} to="/giftBoxes" color="inherit">
+            Gift Boxes
           </Button>
           <Button component={NavLink} to="/favorites" color="inherit">
             <FavoriteIcon />

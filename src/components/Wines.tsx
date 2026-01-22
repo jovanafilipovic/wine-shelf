@@ -1,13 +1,13 @@
 import "./Wines.css";
 import WineList from "./WineList";
-import WinesHeader from "./WinesHeader";
 import "../global.css";
+import FilterSection from "./FilterSection";
 
 const Wines = () => {
   return (
     <div className="body-container">
       <div className="wines-page">
-        <WinesHeader></WinesHeader>
+        <FilterSection />
         <WineList></WineList>
       </div>
     </div>
