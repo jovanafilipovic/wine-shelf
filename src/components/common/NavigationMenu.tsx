@@ -51,6 +51,9 @@ const Header = () => {
           <Button component={NavLink} to="/giftBoxes" color="inherit">
             Gift Boxes
           </Button>
+          <Button component={NavLink} to="/blog" color="inherit">
+            Blog
+          </Button>
           <Button component={NavLink} to="/favorites" color="inherit">
             <FavoriteIcon />
           </Button>
