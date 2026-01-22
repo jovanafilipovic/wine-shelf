@@ -20,7 +20,6 @@ const ShoppingBag = () => {
           YOUR BAG
         </Typography>
 
-        {/* TOP */}
         <Box
           sx={{
             display: "flex",
@@ -40,12 +39,12 @@ const ShoppingBag = () => {
                 backgroundColor: "rgba(165,42,42,0.08)",
               },
             }}
+            href="/wines"
           >
             CONTINUE SHOPPING
           </Button>
         </Box>
 
-        {/* BOTTOM */}
         <Box
           sx={{
             display: "flex",
@@ -53,12 +52,10 @@ const ShoppingBag = () => {
             flexDirection: { xs: "column", md: "row" },
           }}
         >
-          {/* ITEMS */}
           <Box sx={{ flex: 3 }}>
             <ShoppingBagItem />
           </Box>
 
-          {/* SUMMARY */}
           <Box sx={{ flex: 1 }}>
             <OrderSummary />
           </Box>

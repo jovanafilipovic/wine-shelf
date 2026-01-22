@@ -11,7 +11,6 @@ const CategoryItem = ({ item }) => {
         borderRadius: 2,
       }}
     >
-      {/* Slika */}
       <Box
         component="img"
         src={item.img}
@@ -21,11 +20,9 @@ const CategoryItem = ({ item }) => {
           height: "100%",
           objectFit: "cover",
           transition: "transform 0.3s",
-          "&:hover": { transform: "scale(1.05)" }, // efekat zoom na hover
+          "&:hover": { transform: "scale(1.05)" },
         }}
       />
-
-      {/* Info overlay */}
       <Box
         sx={{
           position: "absolute",
@@ -37,7 +34,7 @@ const CategoryItem = ({ item }) => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "rgba(0,0,0,0.3)", // poluprovidna pozadina
+          backgroundColor: "rgba(0,0,0,0.3)",
         }}
       >
         <Typography

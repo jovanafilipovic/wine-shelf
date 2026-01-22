@@ -1,6 +1,7 @@
 import { Box, Button, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { categories, regions } from "../data";
 
 const WinesHeader = () => {
   const [categoryAnchor, setCategoryAnchor] = useState<null | HTMLElement>(
@@ -50,10 +51,9 @@ const WinesHeader = () => {
         open={isCategoryOpen}
         onClose={handleCategoryClose}
       >
-        <MenuItem onClick={handleCategoryClose}>Red</MenuItem>
-        <MenuItem onClick={handleCategoryClose}>Rose</MenuItem>
-        <MenuItem onClick={handleCategoryClose}>White</MenuItem>
-        <MenuItem onClick={handleCategoryClose}>Sparking Wine</MenuItem>
+        {categories.map((category) => (
+          <MenuItem>{category.title}</MenuItem>
+        ))}
       </Menu>
 
       <Button
@@ -70,14 +70,9 @@ const WinesHeader = () => {
         open={isRegionOpen}
         onClose={handleRegionClose}
       >
-        <MenuItem onClick={handleRegionClose}>Serbia</MenuItem>
-        <MenuItem onClick={handleRegionClose}>Montenegro</MenuItem>
-        <MenuItem onClick={handleRegionClose}>North Macedonia</MenuItem>
-        <MenuItem onClick={handleRegionClose}>Croatia</MenuItem>
-        <MenuItem onClick={handleRegionClose}>Slovenia</MenuItem>
-        <MenuItem onClick={handleRegionClose}>Albania</MenuItem>
-        <MenuItem onClick={handleRegionClose}>Greece</MenuItem>
-        <MenuItem onClick={handleRegionClose}>Bulgaria</MenuItem>
+        {regions.map((region) => (
+          <MenuItem>{region.country}</MenuItem>
+        ))}
       </Menu>
 
       <Button

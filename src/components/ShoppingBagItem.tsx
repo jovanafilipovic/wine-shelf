@@ -1,24 +1,14 @@
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Box, Typography, IconButton } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import { addToCart, removeFromCart } from "../redux/cartSlice";
 
 const ShoppingBagItem = () => {
-  const products = [
-    {
-      id: 93813718293,
-      name: "JESSIE THUNDER SHOES",
-      img: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A",
-      quantity: 2,
-      price: 30,
-    },
-    {
-      id: 93813718294,
-      name: "HAKURA T-SHIRT",
-      img: "https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png",
-      quantity: 1,
-      price: 20,
-    },
-  ];
+  const dispatch = useDispatch();
+
+  const products = useSelector((state: RootState) => state.cart.items);
 
   return (
     <Box>
@@ -49,10 +39,11 @@ const ShoppingBagItem = () => {
               }}
             >
               <Typography>
-                <b>Product:</b> {product.name}
+                <b>Product:</b>
+                {product.title}
               </Typography>
               <Typography>
-                <b>ID:</b> {product.id}
+                <b>Price:</b> {product.price}
               </Typography>
               <Typography>
                 <b>Quantity:</b> {product.quantity}
@@ -81,20 +72,20 @@ const ShoppingBagItem = () => {
                 borderRadius: 1,
               }}
             >
-              <IconButton>
+              <IconButton onClick={() => dispatch(addToCart(product))}>
                 <AddIcon />
               </IconButton>
               <Typography sx={{ mx: 1, fontSize: 20 }}>
                 {product.quantity}
               </Typography>
-              <IconButton>
+              <IconButton onClick={() => dispatch(removeFromCart(product.id))}>
                 <RemoveIcon />
               </IconButton>
             </Box>
             <Typography
               sx={{ fontSize: 25, fontWeight: 200, letterSpacing: 2 }}
             >
-              ${product.price}
+              ${(product.price * product.quantity).toFixed(2)}
             </Typography>
           </Box>
         </Box>

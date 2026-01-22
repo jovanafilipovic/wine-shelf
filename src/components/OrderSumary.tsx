@@ -1,6 +1,17 @@
 import { Box, Typography, Button } from "@mui/material";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const OrderSummary = () => {
+  const items = useSelector((state: RootState) => state.cart.items);
+
+  const subTotal = items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+  const shipping = items.length > 0 ? 5.9 : 0;
+  const total = subTotal + shipping;
+
   return (
     <Box
       sx={{
@@ -25,25 +36,40 @@ const OrderSummary = () => {
         ORDER SUMMARY
       </Typography>
 
-      {[
-        { label: "Subtotal", value: "$ 80" },
-        { label: "Estimated Shipping", value: "$ 5.90" },
-        { label: "Shipping Discount", value: "$ -5.90" },
-        { label: "Total", value: "$ 80" },
-      ].map((item) => (
-        <Box
-          key={item.label}
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            color: "brown",
-            my: 3,
-          }}
-        >
-          <Typography>{item.label}</Typography>
-          <Typography>{item.value}</Typography>
-        </Box>
-      ))}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          color: "brown",
+          my: 3,
+        }}
+      >
+        <Typography>Subtotal</Typography>
+        <Typography>${subTotal.toFixed(2)}</Typography>
+      </Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          color: "brown",
+          my: 3,
+        }}
+      >
+        <Typography>Estimated Shipping</Typography>
+        <Typography>${shipping.toFixed(2)}</Typography>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          color: "brown",
+          my: 3,
+        }}
+      >
+        <Typography>Total</Typography>
+        <Typography>${total.toFixed(2)}</Typography>
+      </Box>
 
       <Button
         fullWidth

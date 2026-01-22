@@ -7,17 +7,20 @@ import {
 } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
 
 const ProductItem = ({ item }) => {
+  const dispatch = useDispatch();
+
   return (
-    // ZAMENI DINAMICKIM VREDNOSTIMA
     <Card sx={{ maxWidth: 345, maxHeight: 420 }}>
-      <CardHeader title="Shrimp and Chorizo Paella" />
+      <CardHeader title={item.title} />
       <CardMedia
         component="img"
         height="300"
-        image={"/static/images/cards/paella.jpg"}
-        alt="Paella dish"
+        image={item.img}
+        alt={item.title}
       />
       <CardActions
         disableSpacing
@@ -30,7 +33,19 @@ const ProductItem = ({ item }) => {
         <IconButton aria-label="add to favorites">
           <FavoriteBorderIcon />
         </IconButton>
-        <IconButton aria-label="shopping bag">
+        <IconButton
+          aria-label="shopping bag"
+          onClick={() =>
+            dispatch(
+              addToCart({
+                id: item.id,
+                title: item.title,
+                price: item.price,
+                img: item.img,
+              })
+            )
+          }
+        >
           <ShoppingBagIcon />
         </IconButton>
       </CardActions>
