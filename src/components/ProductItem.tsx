@@ -7,7 +7,6 @@ import {
 } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import "./Product.css";
 
 const ProductItem = ({ item }) => {
   return (

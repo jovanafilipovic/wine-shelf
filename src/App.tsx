@@ -1,7 +1,6 @@
 import Footer from "./components/common/Footer";
 import Header from "./components/common/NavigationMenu";
 import HomePage from "./components/HomePage";
-import Wines from "./components/Wines";
 import SparklingWines from "./components/SparklingWines";
 import Regions from "./components/Regions";
 import Grapes from "./components/Grapes";
@@ -16,6 +15,7 @@ import SignIn from "./components/SignIn";
 import ProductDescription from "./components/ProductDescription";
 import GiftBoxes from "./components/GiftBoxes";
 import Blog from "./components/Blog";
+import WinesPage from "./components/Wines";
 
 const App = () => {
   return (
@@ -23,7 +23,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/wines" element={<Wines />} />
+        <Route path="/wines" element={<WinesPage />} />
         <Route path="/champagnes" element={<SparklingWines />} />
         <Route path="/regions" element={<Regions />} />
         <Route path="/grapes" element={<Grapes />} />

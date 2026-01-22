@@ -1,14 +1,16 @@
-import { popularProducts } from "../data";
+import { Grid } from "@mui/material";
 import ProductItem from "./ProductItem";
-import "./Wines.css";
+import { popularProducts } from "../data";
 
 const WineList = () => {
   return (
-    <div className="wines-container">
+    <Grid container spacing={2}>
       {popularProducts.map((item) => (
-        <ProductItem item={item} key={item.id} />
+        <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
+          <ProductItem item={item} />
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 };
 

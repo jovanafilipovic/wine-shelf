@@ -1,5 +1,3 @@
-import "./PageNotFound.css";
-
 const PageNotFound = () => {
   return (
     <div className="page-not-found">

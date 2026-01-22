@@ -1,7 +1,6 @@
-import { Button, Menu, MenuItem } from "@mui/material";
+import { Box, Button, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import "./Wines.css";
 
 const WinesHeader = () => {
   const [categoryAnchor, setCategoryAnchor] = useState<null | HTMLElement>(
@@ -29,11 +28,19 @@ const WinesHeader = () => {
   const isSortOpen = Boolean(sortAnchor);
 
   return (
-    <div className="filters-container">
+    <Box
+      sx={{
+        display: "flex",
+        gap: 2,
+        alignItems: "center",
+        flexWrap: "wrap",
+      }}
+    >
       <Button
         aria-controls={isCategoryOpen ? "category-menu" : undefined}
         aria-haspopup="true"
         onClick={handleCategoryClick}
+        sx={{ color: "#6b1e1e" }}
       >
         Category
       </Button>
@@ -53,6 +60,7 @@ const WinesHeader = () => {
         aria-controls={isRegionOpen ? "region-menu" : undefined}
         aria-haspopup="true"
         onClick={handleRegionClick}
+        sx={{ color: "#6b1e1e" }}
       >
         Region
       </Button>
@@ -75,9 +83,9 @@ const WinesHeader = () => {
       <Button
         aria-controls={isSortOpen ? "sort-menu" : undefined}
         aria-haspopup="true"
-        variant="contained"
         endIcon={<KeyboardArrowDownIcon />}
         onClick={handleSortClick}
+        sx={{ color: "#6b1e1e" }}
       >
         Sort By
       </Button>
@@ -90,7 +98,7 @@ const WinesHeader = () => {
         <MenuItem onClick={handleSortClose}>Price (asc)</MenuItem>
         <MenuItem onClick={handleSortClose}>Price (desc)</MenuItem>
       </Menu>
-    </div>
+    </Box>
   );
 };
 

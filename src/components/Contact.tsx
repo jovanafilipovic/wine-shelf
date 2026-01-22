@@ -1,50 +1,84 @@
 import { useState } from "react";
-import "./Contact.css";
-import { TextField, Button } from "@mui/material";
+import { Box, Grid, TextField, Button, Typography } from "@mui/material";
 
 const Contact = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const sendMessage = (e) => {
+  const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
   return (
-    <div className="contact">
-      <div className="contact-info">
-        <h3 className="heading-contact-info">Contact information</h3>
-        <div className="contact-info-text">
-          <p>Phone: +381 63 666 999</p>
-          <p>Email: wineshelf.rs@gmail.com</p>
-        </div>
-      </div>
-      <form onSubmit={sendMessage}>
-        <div className="contact-us-form">
-          <h2 className="heading-contact">Contact Us</h2>
+    <Box
+      sx={{
+        maxWidth: 1200,
+        minHeight: 2000,
+        mx: "auto",
+        mt: 5,
+        px: 2,
+        pt: 20,
+      }}
+    >
+      <Grid container spacing={4}>
+        <Grid item xs={12} md={4}>
+          <Typography variant="h5" gutterBottom sx={{ color: "brown" }}>
+            Contact Information
+          </Typography>
+          <Typography variant="body1">Phone: +381 63 666 999</Typography>
+          <Typography variant="body1">Email: wineshelf.rs@gmail.com</Typography>
+        </Grid>
 
-          <TextField
-            required
-            id="outlined-required"
-            label="Required"
-            defaultValue="Email"
-            className="text-field"
-          />
-          <TextField
-            id="outlined-multiline-static"
-            label="Multiline"
-            multiline
-            rows={4}
-            defaultValue="Message"
-            className="text-field"
-          />
+        <Grid item xs={12} md={8}>
+          <Box
+            component="form"
+            onSubmit={sendMessage}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+            }}
+          >
+            <Typography variant="h4" gutterBottom sx={{ color: "brown" }}>
+              Contact Us
+            </Typography>
+            <TextField
+              label="Email"
+              type="email"
+              variant="outlined"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              label="Message"
+              variant="outlined"
+              multiline
+              rows={5}
+              required
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
 
-          <Button variant="contained">Send message</Button>
-        </div>
-      </form>
-    </div>
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{
+                mt: 3,
+                alignSelf: "flex-start",
+                backgroundColor: "brown",
+                fontWeight: "bold",
+                "&:hover": {
+                  backgroundColor: "#5a1e1e",
+                },
+              }}
+            >
+              Send Message
+            </Button>
+          </Box>
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 

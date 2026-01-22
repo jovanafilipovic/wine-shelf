@@ -1,21 +1,22 @@
+// import img from "../public/images/Bovin_Ana_Marija_Rose_750_2014.png";
 export const sliderItems = [
   {
     id: 1,
-    img: "../src/components/pictures/balkanWines.jpg",
+    img: "/images/wine_collection.jpeg",
     title: "SUMMER SALE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     backColor: "f5fafd",
   },
   {
     id: 2,
-    img: "../src/components/pictures/balkanWines2.jpg",
+    img: "/images/balkanWines2.jpg",
     title: "AUTUMN COLLECTION",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     backColor: "fcf1ed",
   },
   {
     id: 3,
-    img: "../src/components/pictures/balkanWines3.jpg",
+    img: "/images/balkanWines3.jpg",
     title: "LOUNGEWEAR LOVE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     backColor: "fbf0f4",

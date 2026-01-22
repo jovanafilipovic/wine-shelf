@@ -1,17 +1,20 @@
-import "./Wines.css";
-import WineList from "./WineList";
-import "../global.css";
+import { Container, Grid } from "@mui/material";
 import FilterSection from "./FilterSection";
+import WineList from "./WineList";
 
-const Wines = () => {
+const WinesPage = () => {
   return (
-    <div className="body-container">
-      <div className="wines-page">
-        <FilterSection />
-        <WineList></WineList>
-      </div>
-    </div>
+    <Container maxWidth="xl" sx={{ mt: 2 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <FilterSection />
+        </Grid>
+        <Grid item xs={12}>
+          <WineList />
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 
-export default Wines;
+export default WinesPage;

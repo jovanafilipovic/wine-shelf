@@ -1,18 +1,18 @@
 import "./Footer.css";
-import { Link } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="footer">
+    <Box className="footer" component="footer">
       <Link href="/aboutUs">About Us</Link>
       <Link href="/contact">Contact</Link>
       <Link href="/termsOfUse">Terms of Use</Link>
-      <span className="all-rights">
+      <Typography marginTop={2}>
         &copy; {currentYear} WineShelf. All rights reserved.
-      </span>
-    </div>
+      </Typography>
+    </Box>
   );
 };
 

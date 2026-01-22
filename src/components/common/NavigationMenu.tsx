@@ -17,7 +17,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
 import { NavLink } from "react-router-dom";
-import Logo from "../pictures/logo.png";
+// import Logo from "../../../public/images/logo.png";
 
 const Header = () => {
   const [mobileAnchor, setMobileAnchor] = useState<null | HTMLElement>(null);
@@ -31,7 +31,7 @@ const Header = () => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* LOGO */}
         <Box display="flex" alignItems="center" gap={1}>
-          <img src={Logo} alt="Wine Shelf" height={40} />
+          <img alt="Wine Shelf" height={40} />
           <Typography variant="h6" fontWeight={600}>
             WINE SHELF
           </Typography>
