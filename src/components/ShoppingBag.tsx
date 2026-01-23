@@ -1,6 +1,7 @@
 import { Box, Typography, Button } from "@mui/material";
 import OrderSummary from "./OrderSumary";
 import ShoppingBagItem from "./ShoppingBagItem";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const ShoppingBag = () => {
   return (
@@ -41,6 +42,7 @@ const ShoppingBag = () => {
             }}
             href="/wines"
           >
+            <ArrowBackIcon />
             CONTINUE SHOPPING
           </Button>
         </Box>

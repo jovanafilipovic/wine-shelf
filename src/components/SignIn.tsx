@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
+import { useAppDispatch } from "../redux/hooks";
+import { login } from "../redux/userSlice";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const handleLogin = (e: React.FormEvent) => {
+    dispatch(login({ email, password }));
     e.preventDefault();
     navigate("/");
   };

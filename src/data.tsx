@@ -1,3 +1,5 @@
+import { Description } from "@mui/icons-material";
+
 // import img from "../public/images/Bovin_Ana_Marija_Rose_750_2014.png";
 export const sliderItems = [
   {
@@ -262,6 +264,7 @@ export const wines = [
     id: 1,
     title: "Vranac",
     img: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
+    description: "PROBA",
     category: "white",
     region: "Serbia",
     price: "60",

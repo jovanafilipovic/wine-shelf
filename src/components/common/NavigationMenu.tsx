@@ -17,14 +17,26 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
 import { NavLink } from "react-router-dom";
-// import Logo from "../../../public/images/logo.png";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../redux/store";
+import { logout } from "../../redux/userSlice";
 
-const Header = () => {
+const Navigation = () => {
   const [mobileAnchor, setMobileAnchor] = useState<null | HTMLElement>(null);
   const [profileAnchor, setProfileAnchor] = useState<null | HTMLElement>(null);
 
+  const dispatch = useDispatch();
+  const { currentUser, isAuthenticated } = useSelector(
+    (state: RootState) => state.user
+  );
+
   const mobileOpen = Boolean(mobileAnchor);
   const profileOpen = Boolean(profileAnchor);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    setProfileAnchor(null);
+  };
 
   return (
     <AppBar position="static" sx={{ backgroundColor: "white", color: "brown" }}>
@@ -38,7 +50,13 @@ const Header = () => {
         </Box>
 
         {/* DESKTOP NAV */}
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+        <Box
+          sx={{
+            display: { xs: "none", md: "flex" },
+            gap: 2,
+            alignItems: "center",
+          }}
+        >
           <Button component={NavLink} to="/" color="inherit">
             <HomeIcon />
           </Button>
@@ -62,7 +80,11 @@ const Header = () => {
           </Button>
 
           {/* PROFILE */}
-          <IconButton onClick={(e) => setProfileAnchor(e.currentTarget)}>
+          <IconButton
+            aria-controls={profileOpen ? "profile-menu" : undefined}
+            aria-haspopup="true"
+            onClick={(e) => setProfileAnchor(e.currentTarget)}
+          >
             <Avatar sx={{ bgcolor: "brown" }}>
               <PersonIcon />
             </Avatar>
@@ -112,25 +134,65 @@ const Header = () => {
         >
           Shopping Bag
         </MenuItem>
+        <Divider />
+        {!isAuthenticated ? (
+          <>
+            <MenuItem
+              component={NavLink}
+              to="/signin"
+              onClick={() => setMobileAnchor(null)}
+            >
+              Sign in
+            </MenuItem>
+            <MenuItem
+              component={NavLink}
+              to="/registration"
+              onClick={() => setMobileAnchor(null)}
+            >
+              Register
+            </MenuItem>
+          </>
+        ) : (
+          <>
+            <MenuItem disabled>Hello, {currentUser?.firstName}</MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleLogout();
+                setMobileAnchor(null);
+              }}
+            >
+              Logout
+            </MenuItem>
+          </>
+        )}
       </Menu>
 
       {/* PROFILE MENU */}
       <Menu
+        id="profile-menu"
         anchorEl={profileAnchor}
         open={profileOpen}
         onClose={() => setProfileAnchor(null)}
       >
-        <MenuItem component={NavLink} to="/signin">
-          Sign in
-        </MenuItem>
-        <MenuItem component={NavLink} to="/registration">
-          Register
-        </MenuItem>
-        <Divider />
-        <MenuItem>Logout</MenuItem>
+        {!isAuthenticated ? (
+          <>
+            <MenuItem component={NavLink} to="/signin">
+              Sign in
+            </MenuItem>
+            <MenuItem component={NavLink} to="/registration">
+              Register
+            </MenuItem>
+          </>
+        ) : (
+          <>
+            <MenuItem disabled>Hello, {currentUser?.firstName}</MenuItem>
+            <Divider />
+            <MenuItem onClick={handleLogout}>Logout</MenuItem>
+          </>
+        )}
       </Menu>
     </AppBar>
   );
 };
 
-export default Header;
+export default Navigation;

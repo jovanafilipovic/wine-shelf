@@ -10,6 +10,9 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../redux/hooks";
+import { register } from "../redux/userSlice";
 
 const Registration = () => {
   const [firstName, setFirstName] = useState("");
@@ -25,12 +28,37 @@ const Registration = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
 
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
-  const register = (e: React.FormEvent) => {
+  // const dispatch = useDispatch();
+
+  const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!termsAccepted) return;
-    if (password !== confirmPassword) return;
+    if (!termsAccepted) {
+      alert("You must accept terms");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    dispatch(
+      register({
+        id: crypto.randomUUID(),
+        firstName,
+        lastName,
+        email,
+        phone,
+        city,
+        address,
+        addressNumber,
+        postNumber,
+        password,
+      })
+    );
 
     navigate("/signin");
   };
@@ -39,7 +67,7 @@ const Registration = () => {
     <Container maxWidth="sm" sx={{ minHeight: "200vh" }}>
       <Box
         component="form"
-        onSubmit={register}
+        onSubmit={handleRegister}
         sx={{
           mt: 6,
           p: 4,
