@@ -2,6 +2,8 @@ import { Box, Button, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { categories, regions } from "../data";
+import { useDispatch } from "react-redux";
+import { filterByCategory, filterByRegion } from "../redux/wineSlice";
 
 const WinesHeader = () => {
   const [categoryAnchor, setCategoryAnchor] = useState<null | HTMLElement>(
@@ -9,6 +11,8 @@ const WinesHeader = () => {
   );
   const [regionAnchor, setRegionAnchor] = useState<null | HTMLElement>(null);
   const [sortAnchor, setSortAnchor] = useState<null | HTMLElement>(null);
+
+  const dispatch = useDispatch();
 
   const handleCategoryClick = (event: React.MouseEvent<HTMLElement>) => {
     setCategoryAnchor(event.currentTarget);
@@ -52,7 +56,12 @@ const WinesHeader = () => {
         onClose={handleCategoryClose}
       >
         {categories.map((category) => (
-          <MenuItem>{category.title}</MenuItem>
+          <MenuItem
+            sx={{ color: "#6b1e1e" }}
+            onClick={() => dispatch(filterByCategory(category))}
+          >
+            {category}
+          </MenuItem>
         ))}
       </Menu>
 
@@ -71,7 +80,12 @@ const WinesHeader = () => {
         onClose={handleRegionClose}
       >
         {regions.map((region) => (
-          <MenuItem>{region.country}</MenuItem>
+          <MenuItem
+            sx={{ color: "#6b1e1e" }}
+            onClick={() => dispatch(filterByRegion(region.country))}
+          >
+            {region.country}
+          </MenuItem>
         ))}
       </Menu>
 
@@ -90,8 +104,12 @@ const WinesHeader = () => {
         open={isSortOpen}
         onClose={handleSortClose}
       >
-        <MenuItem onClick={handleSortClose}>Price (asc)</MenuItem>
-        <MenuItem onClick={handleSortClose}>Price (desc)</MenuItem>
+        <MenuItem onClick={handleSortClose} sx={{ color: "#6b1e1e" }}>
+          Price (asc)
+        </MenuItem>
+        <MenuItem onClick={handleSortClose} sx={{ color: "#6b1e1e" }}>
+          Price (desc)
+        </MenuItem>
       </Menu>
     </Box>
   );

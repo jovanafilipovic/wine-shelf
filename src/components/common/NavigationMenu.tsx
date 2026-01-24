@@ -39,13 +39,19 @@ const Navigation = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "white", color: "brown" }}>
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "white",
+        color: "brown",
+        minHeight: { xs: 60, md: 80 },
+        justifyContent: "center",
+      }}
+    >
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        {/* LOGO */}
         <Box display="flex" alignItems="center" gap={1}>
-          <img alt="Wine Shelf" height={40} />
           <Typography variant="h6" fontWeight={600}>
-            WINE SHELF
+            BALKAN WINE SHELF
           </Typography>
         </Box>
 
@@ -63,11 +69,11 @@ const Navigation = () => {
           <Button component={NavLink} to="/wines" color="inherit">
             Wines
           </Button>
-          <Button component={NavLink} to="/regions" color="inherit">
-            Regions
-          </Button>
           <Button component={NavLink} to="/giftBoxes" color="inherit">
             Gift Boxes
+          </Button>
+          <Button component={NavLink} to="/regions" color="inherit">
+            Regions
           </Button>
           <Button component={NavLink} to="/blog" color="inherit">
             Blog

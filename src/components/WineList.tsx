@@ -1,11 +1,14 @@
 import { Grid } from "@mui/material";
 import ProductItem from "./ProductItem";
-import { wines } from "../data";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const WineList = () => {
+  const { filteredWines } = useSelector((state: RootState) => state.wine);
+
   return (
     <Grid container spacing={2}>
-      {wines.map((item) => (
+      {filteredWines.map((item) => (
         <Grid item xs={12} sm={6} md={4} lg={3} key={item.id}>
           <ProductItem item={item} />
         </Grid>
