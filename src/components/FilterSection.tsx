@@ -3,7 +3,11 @@ import { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { categories, regions } from "../data";
 import { useDispatch } from "react-redux";
-import { filterByCategory, filterByRegion } from "../redux/wineSlice";
+import {
+  filterByCategory,
+  filterByRegion,
+  sortByPrice,
+} from "../redux/wineSlice";
 
 const WinesHeader = () => {
   const [categoryAnchor, setCategoryAnchor] = useState<null | HTMLElement>(
@@ -104,10 +108,16 @@ const WinesHeader = () => {
         open={isSortOpen}
         onClose={handleSortClose}
       >
-        <MenuItem onClick={handleSortClose} sx={{ color: "#6b1e1e" }}>
+        <MenuItem
+          onClick={() => dispatch(sortByPrice("asc"))}
+          sx={{ color: "#6b1e1e" }}
+        >
           Price (asc)
         </MenuItem>
-        <MenuItem onClick={handleSortClose} sx={{ color: "#6b1e1e" }}>
+        <MenuItem
+          onClick={() => dispatch(sortByPrice("desc"))}
+          sx={{ color: "#6b1e1e" }}
+        >
           Price (desc)
         </MenuItem>
       </Menu>

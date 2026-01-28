@@ -9,7 +9,7 @@ const OrderSummary = () => {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-  const shipping = items.length > 0 ? 5.9 : 0;
+  const shipping = items.length > 0 ? 600 : 0;
   const total = subTotal + shipping;
 
   return (
@@ -45,7 +45,7 @@ const OrderSummary = () => {
         }}
       >
         <Typography>Subtotal</Typography>
-        <Typography>${subTotal.toFixed(2)}</Typography>
+        <Typography>{subTotal.toFixed(2)} RSD</Typography>
       </Box>
 
       <Box
@@ -57,7 +57,7 @@ const OrderSummary = () => {
         }}
       >
         <Typography>Estimated Shipping</Typography>
-        <Typography>${shipping.toFixed(2)}</Typography>
+        <Typography>{shipping.toFixed(2)} RSD</Typography>
       </Box>
       <Box
         sx={{
@@ -68,7 +68,7 @@ const OrderSummary = () => {
         }}
       >
         <Typography>Total</Typography>
-        <Typography>${total.toFixed(2)}</Typography>
+        <Typography>{total.toFixed(2)} RSD</Typography>
       </Box>
 
       <Button

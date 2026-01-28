@@ -2,7 +2,7 @@ import { Container } from "@mui/material";
 import { popularProducts } from "../data";
 import ProductItem from "./ProductItem";
 
-const PopularProducts = () => {
+const NewProducts = () => {
   return (
     <Container
       disableGutters
@@ -24,4 +24,4 @@ const PopularProducts = () => {
   );
 };
 
-export default PopularProducts;
+export default NewProducts;

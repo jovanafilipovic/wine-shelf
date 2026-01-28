@@ -10,7 +10,6 @@ import Contact from "./components/Contact";
 import TermsOfUse from "./components/TermsOfUse";
 import SignIn from "./components/SignIn";
 import Registration from "./components/Registration";
-import ProductDescription from "./components/ProductDescription";
 import PageNotFound from "./components/PageNotFound";
 
 export const routes = [
@@ -26,6 +25,5 @@ export const routes = [
   { path: "/termsOfUse", element: <TermsOfUse /> },
   { path: "/signIn", element: <SignIn /> },
   { path: "/registration", element: <Registration /> },
-  { path: "/productDescription", element: <ProductDescription /> },
   { path: "*", element: <PageNotFound /> },
 ];

@@ -1,38 +1,37 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { wines } from "../data";
-
+import { wines as initialWines } from "../data";
 interface Wine {
   id: number;
   title: string;
   description: string;
   img: string;
   category: string;
-  price: string;
+  price: number;
   region: string;
 }
+
+type SortOrder = "asc" | "desc" | null;
 
 interface WineState {
   wines: Wine[];
   filteredWines: Wine[];
   selectedCategory: string | null;
   selectedRegion: string | null;
+  sortOrder: SortOrder;
 }
 
 const initialState: WineState = {
-  wines: [],
-  filteredWines: [],
+  wines: initialWines,
+  filteredWines: initialWines,
   selectedCategory: null,
   selectedRegion: null,
+  sortOrder: null,
 };
 
 const wineSlice = createSlice({
   name: "wine",
   initialState,
   reducers: {
-    setWines: (state, action: PayloadAction<Wine[]>) => {
-      state.wines = action.payload;
-      state.filteredWines = action.payload;
-    },
     filterByCategory: (state, action: PayloadAction<string | null>) => {
       state.selectedCategory = action.payload || null;
 
@@ -57,8 +56,20 @@ const wineSlice = createSlice({
         );
       }
     },
+    sortByPrice: (state, action: PayloadAction<SortOrder>) => {
+      state.sortOrder = action.payload;
+      if (!action.payload) {
+        return;
+      }
+      state.filteredWines = [...state.filteredWines].sort(
+        action.payload === "asc"
+          ? (a, b) => a.price - b.price
+          : (a, b) => b.price - a.price
+      );
+    },
   },
 });
 
-export const { setWines, filterByCategory, filterByRegion } = wineSlice.actions;
+export const { filterByCategory, filterByRegion, sortByPrice } =
+  wineSlice.actions;
 export default wineSlice.reducer;

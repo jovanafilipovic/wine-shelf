@@ -1,7 +1,7 @@
 import Slider from "./Slider";
 import Categories from "./Categories";
-import PopularProducts from "./PopularProducts";
 import { Container } from "@mui/material";
+import NewProducts from "./NewProducts";
 
 const HomePage = () => {
   return (
@@ -19,8 +19,8 @@ const HomePage = () => {
           overflow: "hidden",
         }}
       >
-        <Categories></Categories>
-        <PopularProducts></PopularProducts>
+        <Categories />
+        <NewProducts />
       </Container>
     </>
   );

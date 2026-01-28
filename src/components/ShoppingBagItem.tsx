@@ -39,7 +39,7 @@ const ShoppingBagItem = () => {
               }}
             >
               <Typography>
-                <b>Product:</b>
+                <b>Product: </b>
                 {product.title}
               </Typography>
               <Typography>
@@ -85,7 +85,7 @@ const ShoppingBagItem = () => {
             <Typography
               sx={{ fontSize: 25, fontWeight: 200, letterSpacing: 2 }}
             >
-              ${(product.price * product.quantity).toFixed(2)}
+              {(product.price * product.quantity).toFixed(2)} RSD
             </Typography>
           </Box>
         </Box>
