@@ -1,9 +1,16 @@
 import { Box, Typography, Button } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
+import { createOrder } from "../redux/orderSlice";
+import { clearCart } from "../redux/cartSlice";
 
 const OrderSummary = () => {
+  const dispatch = useDispatch();
+
   const items = useSelector((state: RootState) => state.cart.items);
+  const { currentUser, isAuthenticated } = useSelector(
+    (state: RootState) => state.user
+  );
 
   const subTotal = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -11,6 +18,36 @@ const OrderSummary = () => {
   );
   const shipping = items.length > 0 ? 600 : 0;
   const total = subTotal + shipping;
+
+  const handleCheckout = () => {
+    if (!isAuthenticated || !currentUser) {
+      alert("You must be logged in to place an order.");
+      return;
+    }
+    if (items.length === 0) {
+      alert("Your cart is empty.");
+      return;
+    }
+
+    const order = {
+      id: crypto.randomUUID(),
+      userId: currentUser.id,
+      userEmail: currentUser.email,
+      items: items.map((item) => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        quantity: item.quantity,
+      })),
+      totalPrice: total,
+      createdAt: new Date().toISOString(),
+    };
+
+    dispatch(createOrder(order));
+    dispatch(clearCart());
+
+    alert("Order placed successfully.");
+  };
 
   return (
     <Box
@@ -82,6 +119,7 @@ const OrderSummary = () => {
             backgroundColor: "#5a1a1a",
           },
         }}
+        onClick={handleCheckout}
       >
         CHECKOUT NOW
       </Button>
