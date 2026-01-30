@@ -66,11 +66,21 @@ const ProductItem = ({ item }) => {
 
   return (
     <>
-      <Card sx={{ maxWidth: 345, minHeight: 420 }}>
-        <CardHeader title={item.title} />
+      <Card sx={{ maxWidth: 345, minHeight: 420, mx: "auto" }}>
+        <CardHeader
+          title={item.title}
+          sx={{
+            textAlign: "center",
+          }}
+        />
         <CardMedia
           component="img"
-          height="300"
+          sx={{
+            height: 300,
+            width: "100%",
+            objectFit: "contain",
+            backgroundColor: "#f9f9f9",
+          }}
           image={item.img}
           alt={item.title}
         />

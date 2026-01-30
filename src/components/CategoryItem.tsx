@@ -1,6 +1,16 @@
 import { Box, Button, Typography } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { filterByCategory } from "../redux/wineSlice";
 
 const CategoryItem = ({ item }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    dispatch(filterByCategory(item.title));
+    navigate("/wines");
+  };
   return (
     <Box
       sx={{
@@ -57,6 +67,7 @@ const CategoryItem = ({ item }) => {
             backgroundColor: "white",
             "&:hover": { backgroundColor: "#f0f0f0" },
           }}
+          onClick={handleClick}
         >
           SHOP NOW
         </Button>

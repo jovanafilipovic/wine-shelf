@@ -1,27 +1,15 @@
-import { Description } from "@mui/icons-material";
-
-// import img from "../public/images/Bovin_Ana_Marija_Rose_750_2014.png";
 export const sliderItems = [
   {
     id: 1,
     img: "/images/wine_collection.jpeg",
-    title: "SUMMER SALE",
-    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    backColor: "f5fafd",
   },
   {
     id: 2,
     img: "/images/balkanWines2.jpg",
-    title: "AUTUMN COLLECTION",
-    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    backColor: "fcf1ed",
   },
   {
     id: 3,
     img: "/images/balkanWines3.jpg",
-    title: "LOUNGEWEAR LOVE",
-    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    backColor: "fbf0f4",
   },
 ];
 
@@ -120,121 +108,85 @@ export const regions = [
   },
 ];
 
-export const popularProducts = [
+export const newProducts = [
   {
     id: 1,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
+    title: "Kovačević Fresco Rose",
+    img: "/images/kovacevic-fresco-rose.jpg",
+    description:
+      "Quality sparkling wine made from the highest quality Muscat Hamburg, Probus and Vranac grapes with fine and small pearls.",
+    category: "Rose",
+    region: "Serbia",
+    price: 1200,
   },
   {
     id: 2,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
+    title: "Aleksandrović Trijumf Noir",
+    img: "/images/aleksandrovic-trijumf-noir.jpg",
+    description:
+      "Sparkling white wine obtained from the Pinot Noir grape variety.",
+    category: "Sparkling Wine",
+    region: "Serbia",
+    price: 2200,
   },
   {
     id: 3,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
+    title: "Breg Rose",
+    img: "/images/breg-rose.jpg",
+    description:
+      "Dry rose wine from the 100% Pinot Noir variety, produced in the Breg winery, on the slopes of Fruška Gora.",
+    category: "Rose",
+    region: "Serbia",
+    price: 1800,
   },
   {
     id: 4,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
-  },
-  {
-    id: 5,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
-  },
-  {
-    id: 6,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
-  },
-  {
-    id: 7,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
-  },
-  {
-    id: 8,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
+    title: "Bibich Brut",
+    img: "/images/bibich-brut.jpg",
+    description:
+      "Natural sparkling wine produced from the Debit variety using the traditional method of secondary fermentation in the bottle.",
+    category: "Sparkling Wine",
+    region: "Croatia",
+    price: 2300,
   },
 ];
 
 export const giftBoxes = [
   {
     id: 1,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
+    title: "Merlot Boutique Gift Set",
+    img: "/images/merlot-boutique-gift-set.jpg",
+    description: "",
+    category: "",
+    region: "",
+    price: 1200,
   },
   {
     id: 2,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
+    title: "Merlot Boutique Gift Set",
+    img: "/images/l_premium-poklon-set-triptih-silente.jpg",
+    description: "",
+    category: "",
+    region: "",
+    price: 2200,
   },
   {
     id: 3,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
+    title: "Breg Rose",
+    img: "/images/l_skyline-poklon-set-bright-side.jpg",
+    description: "",
+    category: "",
+    region: "",
+    price: 1800,
   },
   {
     id: 4,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
-  },
-  {
-    id: 5,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
-  },
-  {
-    id: 6,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
-  },
-  {
-    id: 7,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
-  },
-  {
-    id: 8,
-    img: {
-      src: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-      alt: "",
-    },
+    title: "Bibich Brut",
+    img: "/images/l_skyline-poklon-set-kao-tempera.jpg",
+    description: "",
+    category: "",
+    region: "",
+    price: 2300,
   },
 ];
 
@@ -270,11 +222,12 @@ export const wines = [
   },
   {
     id: 4,
-    title: "Vranac 4",
-    img: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-    description: "PROBA",
-    category: "Rose",
-    region: "Greece",
-    price: 2,
+    title: "Buk Chardonnay",
+    img: "/images/buk-chardonnay.jpg",
+    description:
+      "Buk Chardonnay 2018 is a premium dry white wine, produced from grapes of the same variety from family vineyards in the atar of the village of Bukovika at an altitude of 680m",
+    category: "White",
+    region: "Montenegro",
+    price: 2300,
   },
 ];
