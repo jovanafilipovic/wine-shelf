@@ -10,6 +10,7 @@ const CategoryItem = ({ item }) => {
   const handleClick = () => {
     dispatch(filterByCategory(item.title));
     navigate("/wines");
+    window.scrollTo(0, 0);
   };
   return (
     <Box

@@ -1,16 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { wines as initialWines } from "../data";
-interface Wine {
-  id: number;
-  title: string;
-  description: string;
-  img: string;
-  category: string;
-  price: number;
-  region: string;
-}
-
-type SortOrder = "asc" | "desc" | null;
+import { SortOrder, Wine } from "../types";
 
 interface WineState {
   wines: Wine[];

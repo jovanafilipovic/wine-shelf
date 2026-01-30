@@ -62,9 +62,9 @@ const WinesHeader = () => {
         {categories.map((category) => (
           <MenuItem
             sx={{ color: "#6b1e1e" }}
-            onClick={() => dispatch(filterByCategory(category))}
+            onClick={() => dispatch(filterByCategory(category.title))}
           >
-            {category}
+            {category.title}
           </MenuItem>
         ))}
       </Menu>

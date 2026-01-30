@@ -5,59 +5,9 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Button,
   Divider,
 } from "@mui/material";
-
-const blogArticles = [
-  {
-    title: "Discovering Balkan Wines: A Beginner’s Guide",
-    description: "Explore the unique grapes and regions of the Balkans.",
-    image: "",
-  },
-  {
-    title: "Interview with Balkan Winemakers",
-    description: "Insights from the finest vintners of the region.",
-    image: "",
-  },
-  {
-    title: "5 Must-Attend Wine Festivals in the Balkans",
-    description: "Top wine events you shouldn’t miss this year.",
-    image: "",
-  },
-];
-
-const wineEvents = [
-  {
-    title: "Wine Vision by Open Balkan",
-    description:
-      "November 22–25, 2025 – Belgrade, Serbia. The premier wine expo of the Balkans.",
-    image: "",
-  },
-  {
-    title: "BIWC 2026 – Hvar, Croatia",
-    description: "Balkan International Wine Competition.",
-    image: "",
-  },
-  {
-    title: "Balkan Wine Fest – Sofia, Bulgaria",
-    description: "Music, wine & culinary delights in the heart of Sofia.",
-    image: "",
-  },
-];
-
-const additionalEvents = [
-  {
-    title: "Rakija & Spirits Fest",
-    description: "Celebrate Balkan brandies & spirits.",
-    image: "",
-  },
-  {
-    title: "Wine Masterclasses",
-    description: "Learn from top experts in exclusive tastings.",
-    image: "",
-  },
-];
+import { additionalEvents, blogArticles, wineEvents } from "../data";
 
 export default function Blog() {
   return (

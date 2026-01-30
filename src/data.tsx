@@ -1,11 +1,13 @@
+import { title } from "process";
+
 export const sliderItems = [
   {
     id: 1,
-    img: "/images/wine_collection.jpeg",
+    img: "/images/balkans-new-header.jpg",
   },
   {
     id: 2,
-    img: "/images/balkanWines2.jpg",
+    img: "/images/wines.jpg",
   },
   {
     id: 3,
@@ -13,7 +15,12 @@ export const sliderItems = [
   },
 ];
 
-export const categories = ["White", "Red", "Rose", "Sparkling Wine"];
+export const categories = [
+  { title: "White", img: "/images/white-wine-category.jpg" },
+  { title: "Red", img: "/images/red-wine-category.jpg" },
+  { title: "Rose", img: "/images/rose-wine-category.jpg" },
+  { title: "Sparkling Wine", img: "/images/sparkling-wine-category.jpg" },
+];
 
 export const regions = [
   {
@@ -229,5 +236,55 @@ export const wines = [
     category: "White",
     region: "Montenegro",
     price: 2300,
+  },
+];
+
+export const blogArticles = [
+  {
+    title: "Discovering Balkan Wines: A Beginner’s Guide",
+    description: "Explore the unique grapes and regions of the Balkans.",
+    image: "",
+  },
+  {
+    title: "Interview with Balkan Winemakers",
+    description: "Insights from the finest vintners of the region.",
+    image: "",
+  },
+  {
+    title: "5 Must-Attend Wine Festivals in the Balkans",
+    description: "Top wine events you shouldn’t miss this year.",
+    image: "",
+  },
+];
+
+export const wineEvents = [
+  {
+    title: "Wine Vision by Open Balkan",
+    description:
+      "November 22–25, 2025 – Belgrade, Serbia. The premier wine expo of the Balkans.",
+    image: "",
+  },
+  {
+    title: "BIWC 2026 – Hvar, Croatia",
+    description: "Balkan International Wine Competition.",
+    image: "",
+  },
+  {
+    title: "Balkan Wine Fest – Sofia, Bulgaria",
+    description: "Music, wine & culinary delights in the heart of Sofia.",
+    image: "",
+  },
+];
+
+export const additionalEvents = [
+  {
+    title: "Rakija & Spirits Fest",
+    description: "Celebrate Balkan brandies & spirits.",
+    image: "",
+  },
+  {
+    title: "Wine Masterclasses",
+    description: "Learn from top experts in exclusive tastings.",
+    image: "",
   },
 ];
