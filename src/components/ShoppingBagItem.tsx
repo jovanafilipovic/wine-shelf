@@ -4,43 +4,25 @@ import { Box, Typography, IconButton } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { addToCart, removeFromCart } from "../redux/cartSlice";
+import "../styles.css";
 
 const ShoppingBagItem = () => {
   const dispatch = useDispatch();
-
   const products = useSelector((state: RootState) => state.cart.items);
 
   return (
     <Box>
       {products.map((product) => (
-        <Box
-          key={product.id}
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginY: 2,
-            backgroundColor: "white",
-            p: 2,
-          }}
-        >
-          {/* Product Details */}
-          <Box sx={{ display: "flex", flex: 2, color: "brown" }}>
+        <Box key={product.id} className="shopping-bag-item">
+          <Box className="shopping-bag-item-details">
             <Box
               component="img"
               src={product.img}
-              sx={{ width: 200, objectFit: "cover" }}
+              className="shopping-bag-item-image"
             />
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-around",
-                p: 2,
-              }}
-            >
+            <Box className="shopping-bag-item-info">
               <Typography>
-                <b>Product: </b>
-                {product.title}
+                <b>Product:</b> {product.title}
               </Typography>
               <Typography>
                 <b>Price:</b> {product.price}
@@ -50,41 +32,21 @@ const ShoppingBagItem = () => {
               </Typography>
             </Box>
           </Box>
-
-          {/* Price & Amount */}
-          <Box
-            sx={{
-              flex: 1,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "brown",
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                mb: 2,
-                backgroundColor: "#eee",
-                p: 1,
-                borderRadius: 1,
-              }}
-            >
+          <Box className="shopping-bag-item-price">
+            <Box className="shopping-bag-item-amount">
               <IconButton onClick={() => dispatch(addToCart(product))}>
                 <AddIcon />
               </IconButton>
-              <Typography sx={{ mx: 1, fontSize: 20 }}>
+
+              <Typography className="shopping-bag-item-quantity">
                 {product.quantity}
               </Typography>
+
               <IconButton onClick={() => dispatch(removeFromCart(product.id))}>
                 <RemoveIcon />
               </IconButton>
             </Box>
-            <Typography
-              sx={{ fontSize: 25, fontWeight: 200, letterSpacing: 2 }}
-            >
+            <Typography className="shopping-bag-item-total">
               {(product.price * product.quantity).toFixed(2)} RSD
             </Typography>
           </Box>

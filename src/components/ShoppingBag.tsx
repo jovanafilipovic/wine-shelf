@@ -2,44 +2,20 @@ import { Box, Typography, Button } from "@mui/material";
 import OrderSummary from "./OrderSumary";
 import ShoppingBagItem from "./ShoppingBagItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import "../styles.css";
 
 const ShoppingBag = () => {
   return (
-    <Box sx={{ minHeight: "200vh" }}>
-      <Box sx={{ p: { xs: 2, md: 6 } }}>
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: "bold",
-            textAlign: "center",
-            color: "brown",
-            fontFamily:
-              '"Trebuchet MS","Lucida Sans Unicode","Lucida Grande","Lucida Sans",Arial,sans-serif',
-            mb: 4,
-          }}
-        >
+    <Box className="shopping-bag-root">
+      <Box className="shopping-bag-wrapper">
+        <Typography variant="h4" className="shopping-bag-title">
           YOUR BAG
         </Typography>
 
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            mb: 3,
-          }}
-        >
+        <Box className="shopping-bag-top">
           <Button
             variant="outlined"
-            sx={{
-              color: "brown",
-              borderColor: "brown",
-              fontWeight: 600,
-              "&:hover": {
-                borderColor: "brown",
-                backgroundColor: "rgba(165,42,42,0.08)",
-              },
-            }}
+            className="shopping-bag-back-btn"
             href="/wines"
           >
             <ArrowBackIcon />
@@ -47,18 +23,12 @@ const ShoppingBag = () => {
           </Button>
         </Box>
 
-        <Box
-          sx={{
-            display: "flex",
-            gap: 4,
-            flexDirection: { xs: "column", md: "row" },
-          }}
-        >
-          <Box sx={{ flex: 3 }}>
+        <Box className="shopping-bag-content">
+          <Box className="shopping-bag-items">
             <ShoppingBagItem />
           </Box>
 
-          <Box sx={{ flex: 1 }}>
+          <Box className="shopping-bag-summary">
             <OrderSummary />
           </Box>
         </Box>

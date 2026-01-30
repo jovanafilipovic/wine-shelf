@@ -2,6 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { filterByCategory } from "../redux/wineSlice";
+import "../styles.css";
 
 const CategoryItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -12,62 +13,19 @@ const CategoryItem = ({ item }) => {
     navigate("/wines");
     window.scrollTo(0, 0);
   };
+
   return (
-    <Box
-      sx={{
-        position: "relative",
-        width: "100%",
-        height: 500,
-        overflow: "hidden",
-        borderRadius: 2,
-      }}
-    >
-      <Box
-        component="img"
-        src={item.img}
-        alt={item.title}
-        sx={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          transition: "transform 0.3s",
-          "&:hover": { transform: "scale(1.05)" },
-        }}
-      />
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "rgba(0,0,0,0.3)",
-        }}
-      >
-        <Typography
-          variant="h5"
-          sx={{
-            color: "white",
-            mb: 2,
-            fontWeight: 600,
-            textAlign: "center",
-            letterSpacing: 1,
-          }}
-        >
+    <Box className="category-item">
+      <Box component="img" src={item.img} alt={item.title} />
+
+      <Box className="category-item-overlay">
+        <Typography variant="h5" className="category-item-title">
           {item.title}
         </Typography>
 
         <Button
           variant="contained"
-          sx={{
-            color: "gray",
-            backgroundColor: "white",
-            "&:hover": { backgroundColor: "#f0f0f0" },
-          }}
+          className="category-item-button"
           onClick={handleClick}
         >
           SHOP NOW

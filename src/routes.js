@@ -1,6 +1,5 @@
 import HomePage from "./components/HomePage";
 import WinesPage from "./components/Wines";
-import SparklingWines from "./components/SparklingWines";
 import Regions from "./components/Regions";
 import GiftBoxes from "./components/GiftBoxes";
 import Blog from "./components/Blog";
@@ -15,7 +14,6 @@ import PageNotFound from "./components/PageNotFound";
 export const routes = [
   { path: "/", element: <HomePage /> },
   { path: "/wines", element: <WinesPage /> },
-  { path: "/champagnes", element: <SparklingWines /> },
   { path: "/regions", element: <Regions /> },
   { path: "/giftBoxes", element: <GiftBoxes /> },
   { path: "/blog", element: <Blog /> },

@@ -10,9 +10,8 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-// import { useDispatch } from "react-redux";
-import { useAppDispatch } from "../redux/hooks";
 import { register } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
 
 const Registration = () => {
   const [firstName, setFirstName] = useState("");
@@ -28,9 +27,7 @@ const Registration = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
 
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
-
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();

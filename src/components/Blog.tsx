@@ -8,38 +8,37 @@ import {
   Divider,
 } from "@mui/material";
 import { additionalEvents, blogArticles, wineEvents } from "../data";
+import "../styles.css";
 
 export default function Blog() {
   return (
-    <Container maxWidth="lg" sx={{ py: 8 }}>
+    <Container maxWidth="lg" className="blog-container">
       <Typography
         variant="h3"
         gutterBottom
         align="center"
-        sx={{ color: "#6b1e1e" }}
+        className="blog-title-h3"
       >
         Balkan Wine Blog
       </Typography>
-      <Typography variant="subtitle1" color="#5a4a42" paragraph align="center">
+      <Typography
+        variant="subtitle1"
+        paragraph
+        align="center"
+        className="blog-subtitle"
+      >
         Explore the stories, news & events of the Balkan wine world
       </Typography>
-      <Divider sx={{ mb: 4, bgcolor: "#d8cfc4" }} />
+      <Divider className="blog-divider" />
 
       {/* Featured Articles */}
-      <Typography variant="h5" gutterBottom sx={{ color: "#6b1e1e" }}>
+      <Typography variant="h5" gutterBottom className="blog-title-h5">
         Featured Articles
       </Typography>
-      <Grid container spacing={4} sx={{ mb: 6 }}>
+      <Grid container spacing={4} className="mb-6">
         {blogArticles.map((article) => (
           <Grid item xs={12} md={4} key={article.title}>
-            <Card
-              sx={{
-                height: "100%",
-                borderRadius: 3,
-                bgcolor: "#fffaf0",
-                "&:hover": { boxShadow: 6 },
-              }}
-            >
+            <Card className="blog-card">
               <CardMedia
                 component="img"
                 height="200"
@@ -47,10 +46,10 @@ export default function Blog() {
                 alt={article.title}
               />
               <CardContent>
-                <Typography variant="h6" gutterBottom sx={{ color: "#6b1e1e" }}>
+                <Typography variant="h6" gutterBottom className="blog-title-h5">
                   {article.title}
                 </Typography>
-                <Typography variant="body2" color="#5a4a42">
+                <Typography variant="body2" className="blog-subtitle">
                   {article.description}
                 </Typography>
               </CardContent>
@@ -60,20 +59,13 @@ export default function Blog() {
       </Grid>
 
       {/* Upcoming Wine Events */}
-      <Typography variant="h5" gutterBottom sx={{ color: "#6b1e1e" }}>
+      <Typography variant="h5" gutterBottom className="blog-title-h5">
         Upcoming Wine Events
       </Typography>
-      <Grid container spacing={4} sx={{ mb: 6 }}>
+      <Grid container spacing={4} className="mb-6">
         {wineEvents.map((event) => (
           <Grid item xs={12} md={4} key={event.title}>
-            <Card
-              sx={{
-                height: "100%",
-                borderRadius: 3,
-                bgcolor: "#fffaf0",
-                "&:hover": { boxShadow: 6 },
-              }}
-            >
+            <Card className="blog-card">
               <CardMedia
                 component="img"
                 height="200"
@@ -81,10 +73,10 @@ export default function Blog() {
                 alt={event.title}
               />
               <CardContent>
-                <Typography variant="h6" gutterBottom sx={{ color: "#6b1e1e" }}>
+                <Typography variant="h6" gutterBottom className="blog-title-h5">
                   {event.title}
                 </Typography>
-                <Typography variant="body2" color="#5a4a42">
+                <Typography variant="body2" className="blog-subtitle">
                   {event.description}
                 </Typography>
               </CardContent>
@@ -94,20 +86,13 @@ export default function Blog() {
       </Grid>
 
       {/* Festivals */}
-      <Typography variant="h5" gutterBottom sx={{ color: "#6b1e1e" }}>
+      <Typography variant="h5" gutterBottom className="blog-title-h5">
         Festivals & More
       </Typography>
-      <Grid container spacing={4} sx={{ mb: 6 }}>
+      <Grid container spacing={4} className="mb-6">
         {additionalEvents.map((item) => (
           <Grid item xs={12} md={6} key={item.title}>
-            <Card
-              sx={{
-                height: "100%",
-                borderRadius: 3,
-                bgcolor: "#fffaf0",
-                "&:hover": { boxShadow: 6 },
-              }}
-            >
+            <Card className="blog-card">
               <CardMedia
                 component="img"
                 height="200"
@@ -115,10 +100,10 @@ export default function Blog() {
                 alt={item.title}
               />
               <CardContent>
-                <Typography variant="h6" gutterBottom sx={{ color: "#6b1e1e" }}>
+                <Typography variant="h6" gutterBottom className="blog-title-h5">
                   {item.title}
                 </Typography>
-                <Typography variant="body2" color="#5a4a42">
+                <Typography variant="body2" className="blog-subtitle">
                   {item.description}
                 </Typography>
               </CardContent>
@@ -126,7 +111,7 @@ export default function Blog() {
           </Grid>
         ))}
       </Grid>
-      <Divider sx={{ mb: 4, bgcolor: "#d8cfc4" }} />
+      <Divider className="blog-divider" />
     </Container>
   );
 }

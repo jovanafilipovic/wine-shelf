@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { createOrder } from "../redux/orderSlice";
 import { clearCart } from "../redux/cartSlice";
+import "../styles.css";
 
 const OrderSummary = () => {
   const dispatch = useDispatch();
@@ -50,60 +51,22 @@ const OrderSummary = () => {
   };
 
   return (
-    <Box
-      sx={{
-        flex: 1,
-        border: "2px solid white",
-        borderRadius: 2,
-        p: 3,
-        height: "50vh",
-        mt: 4,
-      }}
-    >
-      <Typography
-        variant="h6"
-        sx={{
-          fontWeight: 300,
-          color: "brown",
-          letterSpacing: 1,
-          textAlign: "center",
-          mb: 3,
-        }}
-      >
+    <Box className="order-summary">
+      <Typography variant="h6" className="order-summary-title">
         ORDER SUMMARY
       </Typography>
 
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          color: "brown",
-          my: 3,
-        }}
-      >
+      <Box className="order-summary-row">
         <Typography>Subtotal</Typography>
         <Typography>{subTotal.toFixed(2)} RSD</Typography>
       </Box>
 
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          color: "brown",
-          my: 3,
-        }}
-      >
+      <Box className="order-summary-row">
         <Typography>Estimated Shipping</Typography>
         <Typography>{shipping.toFixed(2)} RSD</Typography>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          color: "brown",
-          my: 3,
-        }}
-      >
+
+      <Box className="order-summary-row">
         <Typography>Total</Typography>
         <Typography>{total.toFixed(2)} RSD</Typography>
       </Box>
@@ -111,14 +74,7 @@ const OrderSummary = () => {
       <Button
         fullWidth
         variant="contained"
-        sx={{
-          mt: 2,
-          backgroundColor: "brown",
-          fontWeight: 600,
-          "&:hover": {
-            backgroundColor: "#5a1a1a",
-          },
-        }}
+        className="order-summary-button"
         onClick={handleCheckout}
       >
         CHECKOUT NOW

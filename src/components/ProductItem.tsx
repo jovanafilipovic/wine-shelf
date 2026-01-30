@@ -6,7 +6,6 @@ import {
   CardMedia,
   Collapse,
   IconButton,
-  IconButtonProps,
   Typography,
 } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -15,91 +14,38 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
-import { styled } from "@mui/material/styles";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
-
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
-
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme }) => ({
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-  variants: [
-    {
-      props: ({ expand }) => !expand,
-      style: {
-        transform: "rotate(0deg)",
-      },
-    },
-    {
-      props: ({ expand }) => !!expand,
-      style: {
-        transform: "rotate(180deg)",
-      },
-    },
-  ],
-}));
+import "../styles.css";
 
 const ProductItem = ({ item }) => {
   const [expanded, setExpanded] = useState(false);
-
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
 
+  const dispatch = useDispatch();
+
+  const handleExpandClick = () => setExpanded(!expanded);
   const showSnackbar = (message: string) => {
     setSnackbarMessage(message);
     setSnackbarOpen(true);
   };
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
-  const dispatch = useDispatch();
-
   return (
     <>
-      <Card sx={{ maxWidth: 345, minHeight: 420, mx: "auto" }}>
-        <CardHeader
-          title={item.title}
-          sx={{
-            textAlign: "center",
-          }}
-        />
+      <Card className="product-card">
+        <CardHeader title={item.title} className="product-card-header" />
         <CardMedia
           component="img"
-          sx={{
-            height: 300,
-            width: "100%",
-            objectFit: "contain",
-            backgroundColor: "#f9f9f9",
-          }}
           image={item.img}
           alt={item.title}
+          className="product-card-media"
         />
-        <CardActions
-          disableSpacing
-          sx={{
-            justifyContent: "center",
-            px: 2,
-            pb: 2,
-          }}
-        >
-          <IconButton
-            aria-label="add to favorites"
-            onClick={() => showSnackbar("Added to favorites")}
-          >
+        <CardActions className="product-card-actions">
+          <IconButton onClick={() => showSnackbar("Added to favorites")}>
             <FavoriteBorderIcon />
           </IconButton>
           <IconButton
-            aria-label="shopping bag"
             onClick={() => {
               dispatch(
                 addToCart({
@@ -115,20 +61,19 @@ const ProductItem = ({ item }) => {
           >
             <ShoppingBagIcon />
           </IconButton>
-          <ExpandMore
-            expand={expanded}
+          <IconButton
             onClick={handleExpandClick}
+            className={`expand-more ${
+              expanded ? "expand-true" : "expand-false"
+            }`}
             aria-expanded={expanded}
             aria-label="show more"
-            sx={{
-              justifyContent: "right",
-            }}
           >
             <ExpandMoreIcon />
-          </ExpandMore>
+          </IconButton>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
+          <CardContent className="product-card-content">
             <Typography>Region: {item.region}</Typography>
             <Typography>Category: {item.category}</Typography>
             <Typography>Price: {item.price}</Typography>
@@ -136,6 +81,7 @@ const ProductItem = ({ item }) => {
           </CardContent>
         </Collapse>
       </Card>
+
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={2000}

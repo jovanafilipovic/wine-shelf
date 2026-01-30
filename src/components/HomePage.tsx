@@ -6,7 +6,7 @@ import NewProducts from "./NewProducts";
 const HomePage = () => {
   return (
     <>
-      <Slider></Slider>
+      <Slider />
       <Container
         disableGutters // remove default padding/margin
         sx={{
